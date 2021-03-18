@@ -1,0 +1,7 @@
+[run]
+omit = core/tests/*
+        core/migrations/*
+        core/__init__.py
+        venv/*
+        CaloriesCounter/__init__.py
+        CaloriesCounter/settings.py
