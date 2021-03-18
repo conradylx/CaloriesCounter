@@ -5,7 +5,7 @@ from .models import Item
 class AddItemForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ['name', 'category', 'calories', 'proteins', 'fats', 'carbohydrates']
+        fields = ['name', 'category', 'proteins', 'fats', 'carbohydrates']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'style': 'width:150px'}),
             'category': forms.Select(attrs={'class': 'form-control', 'style': 'width:150px'}),
