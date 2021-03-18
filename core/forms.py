@@ -7,10 +7,10 @@ class AddItemForm(forms.ModelForm):
         model = Item
         fields = ['name', 'category', 'calories', 'proteins', 'fats', 'carbohydrates']
         widgets = {
-            'name': forms.TextInput(attrs={'class':'form-control', 'style': 'width:150px'}),
-            'category': forms.Select(attrs={'class':'form-control', 'style': 'width:150px'}),
-            'calories': forms.TextInput(attrs={'class':'form-control', 'style': 'width:100px'}),
-            'proteins': forms.TextInput(attrs={'class':'form-control', 'style': 'width:100px'}),
-            'fats': forms.TextInput(attrs={'class':'form-control', 'style': 'width:100px'}),
-            'carbohydrates': forms.TextInput(attrs={'class':'form-control', 'style': 'width:100px'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'style': 'width:150px'}),
+            'category': forms.Select(attrs={'class': 'form-control', 'style': 'width:150px'}),
+            'calories': forms.TextInput(attrs={'class': 'form-control', 'style': 'width:100px'}),
+            'proteins': forms.TextInput(attrs={'class': 'form-control', 'style': 'width:100px'}),
+            'fats': forms.TextInput(attrs={'class': 'form-control', 'style': 'width:100px'}),
+            'carbohydrates': forms.TextInput(attrs={'class': 'form-control', 'style': 'width:100px'}),
         }

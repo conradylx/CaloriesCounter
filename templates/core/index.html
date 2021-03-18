@@ -1,79 +1,153 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% block container %}
-<div class="container">
-	<h1>Calories Tracker</h1>
-	<div>
-        <h4>Calorie Limit: 2000</h4>
-		<h4>Total Calories consumed: {{ total_kcal }} kcal</h4>
-		<h4>Left: ADD</h4>
-	</div><br/>
+{% load tags %}
+    <div class="container">
+        <h1>Calories Tracker</h1>
+        <div>
+            <h4>Calorie Limit: 2000</h4>
+            <h4>Total Calories consumed: {{ total_kcal }} kcal</h4>
+            <h4>Left: {{ 2000|subtract:total_kcal }}</h4>
+        </div>
+        <br/>
 
-    <form method="POST">
-        {% csrf_token %}
-          <div class="row">
-            {% for field in form  %}
-              <div class="col-sm-6">
-                <b>{{ field.label_tag }}</b> - {{ field }}
-              </div>
-            {% endfor %}
-          </div>
-            <button type="submit" id="submit" class="btn btn-info">Submit</button>
-    </form>
+        <button id="new_item" class="btn btn-info" ><a href="{% url 'add_item' %}">Add new item</a></button>
 
-    <div>
-    <h2>Breakfast</h2>
-        <table class="table table-sm">
-            <tr>
-                <th>Item</th>
-                <th>Calorie</th>
-                <th>Carbs</th>
-                <th>Fats</th>
-                <th>Proteins</th>
-            </tr>
-            {% for food in breakfast %}
-            <tr>
-                <td> {{food.name}}</td>
-                <td> {{food.calories}}</td>
-                <td> {{food.carbohydrates}}</td>
-                <td> {{food.fats}}</td>
-				<td> {{food.proteins}}</td>
-			</tr>
-            {% endfor %}
-            <tr style="background-color: bisque">
-                <td>Total: </td>
-                <td>{{ breakfast_kcal.c }}</td>
-                <td>{{ breakfast_kcal.carb }}</td>
-                <td>{{ breakfast_kcal.f }}</td>
-                <td>{{ breakfast_kcal.p }}</td>
-            </tr>
-        </table><br/>
-    <h2>Second Breakfast</h2>
-        <table class="table table-sm">
-            <tr>
-                <th>Item</th>
-                <th>Calorie</th>
-                <th>Carbs</th>
-                <th>Fats</th>
-                <th>Proteins</th>
-            </tr>
-            {% for food in 2nd_breakfast %}
-            <tr>
-                <td> {{food.name}}</td>
-                <td> {{food.calories}}</td>
-                <td> {{food.carbohydrates}}</td>
-                <td> {{food.fats}}</td>
-				<td> {{food.proteins}}</td>
-			</tr>
-            {% endfor %}
-            <tr style="background-color: bisque">
-                <td>Total: </td>
-                <td>{{ 2nd_breakfast_kcal.c }}</td>
-                <td>{{ 2nd_breakfast_kcal.carb }}</td>
-                <td>{{ 2nd_breakfast_kcal.f }}</td>
-                <td>{{ 2nd_breakfast_kcal.p }}</td>
-            </tr>
-        </table>
-	</div>
-</div>
+        <div>
+            <h2>Breakfast</h2>
+            <table class="table table-sm">
+                <tr>
+                    <th>Item</th>
+                    <th>Calorie</th>
+                    <th>Carbs</th>
+                    <th>Fats</th>
+                    <th>Proteins</th>
+                </tr>
+                {% for food in breakfast %}
+                    <tr>
+                        <td> {{ food.name }}</td>
+                        <td> {{ food.calories }}</td>
+                        <td> {{ food.carbohydrates }}</td>
+                        <td> {{ food.fats }}</td>
+                        <td> {{ food.proteins }}</td>
+                    </tr>
+                {% endfor %}
+                <tr style="background-color: bisque">
+                    <td>Total:</td>
+                    <td>{{ breakfast_kcal.c }}</td>
+                    <td>{{ breakfast_kcal.carb }}</td>
+                    <td>{{ breakfast_kcal.f }}</td>
+                    <td>{{ breakfast_kcal.p }}</td>
+                </tr>
+            </table>
+            <br/>
+            <h2>Second Breakfast</h2>
+            <table class="table table-sm">
+                <tr>
+                    <th>Item</th>
+                    <th>Calorie</th>
+                    <th>Carbs</th>
+                    <th>Fats</th>
+                    <th>Proteins</th>
+                </tr>
+                {% for food in 2nd_breakfast %}
+                    <tr>
+                        <td> {{ food.name }}</td>
+                        <td> {{ food.calories }}</td>
+                        <td> {{ food.carbohydrates }}</td>
+                        <td> {{ food.fats }}</td>
+                        <td> {{ food.proteins }}</td>
+                    </tr>
+                {% endfor %}
+                <tr style="background-color: bisque">
+                    <td>Total:</td>
+                    <td>{{ 2nd_breakfast_kcal.c }}</td>
+                    <td>{{ 2nd_breakfast_kcal.carb }}</td>
+                    <td>{{ 2nd_breakfast_kcal.f }}</td>
+                    <td>{{ 2nd_breakfast_kcal.p }}</td>
+                </tr>
+            </table>
+            <br/>
+            <h2>Lunch</h2>
+            <table class="table table-sm">
+                <tr>
+                    <th>Item</th>
+                    <th>Calorie</th>
+                    <th>Carbs</th>
+                    <th>Fats</th>
+                    <th>Proteins</th>
+                </tr>
+                {% for food in lunch %}
+                    <tr>
+                        <td> {{ food.name }}</td>
+                        <td> {{ food.calories }}</td>
+                        <td> {{ food.carbohydrates }}</td>
+                        <td> {{ food.fats }}</td>
+                        <td> {{ food.proteins }}</td>
+                    </tr>
+                {% endfor %}
+                <tr style="background-color: bisque">
+                    <td>Total:</td>
+                    <td>{{ lunch_kcal.c }}</td>
+                    <td>{{ lunch_kcal.carb }}</td>
+                    <td>{{ lunch_kcal.f }}</td>
+                    <td>{{ lunch_kcal.p }}</td>
+                </tr>
+            </table>
+            <br/>
+            <h2>Snack</h2>
+            <table class="table table-sm">
+                <tr>
+                    <th>Item</th>
+                    <th>Calorie</th>
+                    <th>Carbs</th>
+                    <th>Fats</th>
+                    <th>Proteins</th>
+                </tr>
+                {% for food in snack %}
+                    <tr>
+                        <td> {{ food.name }}</td>
+                        <td> {{ food.calories }}</td>
+                        <td> {{ food.carbohydrates }}</td>
+                        <td> {{ food.fats }}</td>
+                        <td> {{ food.proteins }}</td>
+                    </tr>
+                {% endfor %}
+                <tr style="background-color: bisque">
+                    <td>Total:</td>
+                    <td>{{ snack_kcal.c }}</td>
+                    <td>{{ snack_kcal.carb }}</td>
+                    <td>{{ snack_kcal.f }}</td>
+                    <td>{{ snack_kcal.p }}</td>
+                </tr>
+            </table>
+            <br/>
+            <h2>Supper</h2>
+            <table class="table table-sm">
+                <tr>
+                    <th>Item</th>
+                    <th>Calorie</th>
+                    <th>Carbs</th>
+                    <th>Fats</th>
+                    <th>Proteins</th>
+                </tr>
+                {% for food in supper %}
+                    <tr>
+                        <td> {{ food.name }}</td>
+                        <td> {{ food.calories }}</td>
+                        <td> {{ food.carbohydrates }}</td>
+                        <td> {{ food.fats }}</td>
+                        <td> {{ food.proteins }}</td>
+                    </tr>
+                {% endfor %}
+                <tr style="background-color: bisque">
+                    <td>Total:</td>
+                    <td>{{ supper_kcal.c }}</td>
+                    <td>{{ supper_kcal.carb }}</td>
+                    <td>{{ supper_kcal.f }}</td>
+                    <td>{{ supper_kcal.p }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 {% endblock container %}

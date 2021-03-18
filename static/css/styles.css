@@ -6,3 +6,24 @@
 #title {
     text-align: center
 }
+
+/* New item page*/
+.container-new {
+  max-width: 800px;
+  margin: 100px auto;
+}
+
+#button-submit-add {
+    margin-top: 50px
+}
+
+
+#submit, #button-go-back{
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+#button-go-back > a{
+    color: white;
+    text-decoration: none;
+}

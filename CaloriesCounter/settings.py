@@ -68,7 +68,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'CaloriesCounter',
         'HOST': 'localhost',
-        'USER': 'nick',
+        'USER': 'postgres',
         'PASSWORD': 'admin',
         'PORT': '5432',
     }
