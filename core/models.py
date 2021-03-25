@@ -1,12 +1,12 @@
 from django.db import models
 
 meals = (
-        ('Breakfast', 'BreakFast'),
-        ('2nd Breakfast', '2nd BreakFast'),
-        ('Lunch', 'Lunch'),
-        ('Snack', 'Snack'),
-        ('Supper', 'Supper'),
-    )
+    ('Breakfast', 'BreakFast'),
+    ('2nd Breakfast', '2nd BreakFast'),
+    ('Lunch', 'Lunch'),
+    ('Snack', 'Snack'),
+    ('Supper', 'Supper'),
+)
 
 
 class Item(models.Model):
