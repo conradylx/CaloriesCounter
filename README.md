@@ -6,7 +6,7 @@ The application provides the basic calculation of calories from a given macro by
 ## Technologies used:
  - Python 3
  - Django
- - Postgresql
+ - Postgre
  
 ## Final remarks:
 The application is in the first version and it's still under development. 
