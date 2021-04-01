@@ -7,6 +7,7 @@ The application provides the basic calculation of calories from a given macro by
  - Python 3
  - Django
  - Postgres
+ - Docker
  
 ## Final remarks:
 The application is in the first version and it's still under development. 
