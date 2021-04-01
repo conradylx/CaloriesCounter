@@ -13,7 +13,7 @@ SECRET_KEY = 'dur56r$ijpn_-+5o+b$cp*72_fb0iqbwi@yti-zds#-w0%*3l2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -67,9 +67,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'CaloriesCounter',
-        'HOST': 'localhost',
         'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'Komputer1',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
